@@ -31,6 +31,10 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
 # Install Composer globally.
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+# Install Node.js and npm
+RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - \
+    && apt-get install -y nodejs
+
 # Create a directory for your Laravel application.
 WORKDIR /var/www/html
 
